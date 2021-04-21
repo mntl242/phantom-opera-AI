@@ -1,0 +1,158 @@
+         66592 function calls (59392 primitive calls) in 1.402 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      372    1.207    0.003    1.209    0.003 {method 'write' of '_io.TextIOWrapper' objects}
+      100    0.073    0.001    0.073    0.001 {method 'recv' of '_socket.socket' objects}
+      372    0.012    0.000    0.012    0.000 {method 'flush' of '_io.TextIOWrapper' objects}
+      100    0.007    0.000    0.007    0.000 {method 'sendall' of '_socket.socket' objects}
+15236/8036    0.007    0.000    0.012    0.000 encoder.py:333(_iterencode_dict)
+       70    0.006    0.000    0.007    0.000 encoder.py:204(iterencode)
+      186    0.005    0.000    0.014    0.000 __init__.py:278(__init__)
+      186    0.004    0.000    0.004    0.000 {method 'seek' of '_io.TextIOWrapper' objects}
+      372    0.004    0.000    0.004    0.000 {built-in method time.localtime}
+      372    0.004    0.000    0.004    0.000 {built-in method time.strftime}
+     7476    0.003    0.000    0.009    0.000 encoder.py:277(_iterencode_list)
+      558    0.003    0.000    0.017    0.000 __init__.py:646(format)
+       70    0.003    0.000    0.024    0.000 encoder.py:182(encode)
+     8036    0.002    0.000    0.014    0.000 encoder.py:413(_iterencode)
+      372    0.002    0.000    1.235    0.003 __init__.py:1067(emit)
+      186    0.002    0.000    0.004    0.000 ntpath.py:180(split)
+      372    0.002    0.000    0.016    0.000 __init__.py:1056(flush)
+      186    0.002    0.000    0.004    0.000 __init__.py:1502(findCaller)
+       84    0.002    0.000    0.005    0.000 Game.py:212(update_game_state)
+      558    0.002    0.000    0.002    0.000 __init__.py:425(_format)
+     1554    0.002    0.000    0.002    0.000 Character.py:26(display)
+      186    0.002    0.000    1.279    0.007 __init__.py:1553(_log)
+      186    0.001    0.000    0.017    0.000 handlers.py:181(shouldRollover)
+     6864    0.001    0.000    0.001    0.000 {built-in method builtins.isinstance}
+      372    0.001    0.000    1.257    0.003 __init__.py:935(handle)
+      186    0.001    0.000    1.258    0.007 __init__.py:1633(callHandlers)
+      166    0.001    0.000    0.199    0.001 __init__.py:1424(info)
+      744    0.001    0.000    0.002    0.000 __init__.py:892(acquire)
+      186    0.001    0.000    0.001    0.000 ntpath.py:124(splitdrive)
+       16    0.001    0.000    1.122    0.070 Player.py:20(play)
+      186    0.001    0.000    0.040    0.000 handlers.py:65(emit)
+      558    0.001    0.000    0.018    0.000 __init__.py:912(format)
+      186    0.001    0.000    0.001    0.000 {built-in method _codecs.charmap_encode}
+      372    0.001    0.000    0.008    0.000 __init__.py:578(formatTime)
+      186    0.001    0.000    0.001    0.000 ntpath.py:44(normcase)
+      558    0.001    0.000    0.001    0.000 __init__.py:354(getMessage)
+      186    0.001    0.000    0.001    0.000 genericpath.py:121(_splitext)
+       16    0.001    0.000    0.057    0.004 Player.py:325(move)
+      558    0.001    0.000    0.001    0.000 __init__.py:787(filter)
+       84    0.001    0.000    0.002    0.000 Game.py:216(<listcomp>)
+      186    0.001    0.000    1.259    0.007 __init__.py:1579(handle)
+      186    0.001    0.000    0.001    0.000 {method 'tell' of '_io.TextIOWrapper' objects}
+      186    0.001    0.000    0.015    0.000 __init__.py:1538(makeRecord)
+      186    0.001    0.000    0.002    0.000 ntpath.py:203(splitext)
+      558    0.001    0.000    0.002    0.000 __init__.py:624(usesTime)
+      558    0.001    0.000    0.001    0.000 __init__.py:417(usesTime)
+      745    0.001    0.000    0.001    0.000 {method 'acquire' of '_thread.RLock' objects}
+      744    0.001    0.000    0.001    0.000 {built-in method builtins.hasattr}
+       32    0.001    0.000    0.056    0.002 Player.py:90(activate_power)
+       16    0.001    0.000    0.064    0.004 Player.py:44(select)
+       50    0.001    0.000    0.014    0.000 utils.py:27(send_json_to_player)
+     1960    0.001    0.000    0.001    0.000 {built-in method _json.encode_basestring_ascii}
+      744    0.001    0.000    0.001    0.000 __init__.py:899(release)
+      558    0.001    0.000    0.002    0.000 __init__.py:428(format)
+       50    0.001    0.000    0.001    0.000 __init__.py:244(detect_encoding)
+      186    0.001    0.000    0.001    0.000 cp1252.py:18(encode)
+       70    0.001    0.000    0.024    0.000 __init__.py:183(dumps)
+      558    0.001    0.000    0.003    0.000 __init__.py:630(formatMessage)
+      100    0.001    0.000    0.001    0.000 {method 'match' of 're.Pattern' objects}
+      186    0.001    0.000    0.001    0.000 {built-in method time.time}
+      100    0.001    0.000    0.074    0.001 protocol.py:4(recvall)
+       50    0.001    0.000    0.003    0.000 __init__.py:299(loads)
+       50    0.001    0.000    0.078    0.002 utils.py:12(receive_json_from_player)
+       50    0.000    0.000    0.007    0.000 protocol.py:23(send_json)
+      558    0.000    0.000    0.000    0.000 {method 'find' of 'str' objects}
+       50    0.000    0.000    0.001    0.000 decoder.py:332(decode)
+      186    0.000    0.000    0.023    0.000 __init__.py:1174(emit)
+      186    0.000    0.000    0.001    0.000 __init__.py:156(<lambda>)
+      186    0.000    0.000    0.004    0.000 ntpath.py:214(basename)
+      558    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+      186    0.000    0.000    0.001    0.000 __init__.py:119(getLevelName)
+       84    0.000    0.000    0.001    0.000 Game.py:219(<listcomp>)
+       50    0.000    0.000    0.075    0.001 protocol.py:15(receive_json)
+       50    0.000    0.000    0.093    0.002 utils.py:40(ask_question_json)
+      989    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+      125    0.000    0.000    0.000    0.000 Character.py:19(__repr__)
+      186    0.000    0.000    0.000    0.000 threading.py:1318(current_thread)
+      186    0.000    0.000    0.000    0.000 __init__.py:1677(isEnabledFor)
+      372    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+      186    0.000    0.000    0.000    0.000 threading.py:1053(name)
+       50    0.000    0.000    0.000    0.000 decoder.py:343(raw_decode)
+       20    0.000    0.000    1.082    0.054 __init__.py:1412(debug)
+      186    0.000    0.000    0.000    0.000 {built-in method builtins.max}
+       82    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
+        4    0.000    0.000    1.395    0.349 Game.py:167(tour)
+       19    0.000    0.000    0.000    0.000 Player.py:79(<listcomp>)
+      186    0.000    0.000    0.000    0.000 {built-in method nt.getpid}
+      745    0.000    0.000    0.000    0.000 {method 'release' of '_thread.RLock' objects}
+      186    0.000    0.000    0.000    0.000 ntpath.py:34(_get_bothseps)
+       12    0.000    0.000    0.001    0.000 Game.py:204(__repr__)
+      372    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+       12    0.000    0.000    0.000    0.000 Game.py:209(<listcomp>)
+        4    0.000    0.000    1.124    0.281 Game.py:120(actions)
+      744    0.000    0.000    0.000    0.000 {built-in method nt.fspath}
+      456    0.000    0.000    0.000    0.000 {built-in method builtins.id}
+      186    0.000    0.000    0.000    0.000 {built-in method sys._getframe}
+        4    0.000    0.000    0.003    0.001 Game.py:147(fantom_scream)
+       50    0.000    0.000    0.000    0.000 {built-in method _struct.unpack}
+       50    0.000    0.000    0.000    0.000 {built-in method _struct.pack}
+       46    0.000    0.000    0.000    0.000 Player.py:87(<listcomp>)
+       50    0.000    0.000    0.000    0.000 {method 'encode' of 'str' objects}
+      150    0.000    0.000    0.000    0.000 {method 'startswith' of 'bytes' objects}
+      186    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+      372    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+       20    0.000    0.000    0.000    0.000 encoder.py:259(_make_iterencode)
+      380    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+       84    0.000    0.000    0.000    0.000 Game.py:221(<listcomp>)
+      186    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+      186    0.000    0.000    0.000    0.000 codecs.py:214(setstate)
+       20    0.000    0.000    0.000    0.000 encoder.py:104(__init__)
+       46    0.000    0.000    0.000    0.000 Player.py:82(get_adjacent_positions_from_position)
+       50    0.000    0.000    0.000    0.000 {method 'decode' of 'bytes' objects}
+       19    0.000    0.000    0.000    0.000 Player.py:74(get_adjacent_positions)
+       40    0.000    0.000    0.000    0.000 Game.py:149(<setcomp>)
+        1    0.000    0.000    0.000    0.000 {function socket.close at 0x00000157892119D0}
+        1    0.000    0.000    0.002    0.002 Game.py:29(__init__)
+        1    0.000    0.000    1.400    1.400 Game.py:180(lancer)
+        4    0.000    0.000    0.000    0.000 random.py:348(shuffle)
+       41    0.000    0.000    0.000    0.000 random.py:237(_randbelow_with_getrandbits)
+        4    0.000    0.000    0.000    0.000 Game.py:148(<listcomp>)
+      166    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+       16    0.000    0.000    0.000    0.000 Player.py:331(<listcomp>)
+       16    0.000    0.000    0.000    0.000 Player.py:49(<listcomp>)
+      100    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
+       11    0.000    0.000    0.000    0.000 random.py:343(choice)
+       81    0.000    0.000    0.000    0.000 {method 'getrandbits' of '_random.Random' objects}
+        4    0.000    0.000    0.000    0.000 Game.py:165(<listcomp>)
+        1    0.000    0.000    0.000    0.000 socket.py:493(_real_close)
+        5    0.000    0.000    0.000    0.000 Game.py:187(<listcomp>)
+        3    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 Game.py:37(<setcomp>)
+        1    0.000    0.000    0.000    0.000 Player.py:180(<listcomp>)
+       41    0.000    0.000    0.000    0.000 {method 'bit_length' of 'int' objects}
+        8    0.000    0.000    0.000    0.000 Character.py:13(__init__)
+        2    0.000    0.000    0.000    0.000 Player.py:250(<listcomp>)
+        3    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 socket.py:497(close)
+        2    0.000    0.000    0.000    0.000 {method 'copy' of 'set' objects}
+        2    0.000    0.000    0.000    0.000 Player.py:278(<listcomp>)
+        1    0.000    0.000    0.000    0.000 Game.py:99(<listcomp>)
+        1    0.000    0.000    0.000    0.000 Game.py:103(<listcomp>)
+        1    0.000    0.000    0.000    0.000 Player.py:218(<listcomp>)
+        1    0.000    0.000    0.000    0.000 Player.py:184(<listcomp>)
+        1    0.000    0.000    0.000    0.000 __init__.py:214(_acquireLock)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 __init__.py:223(_releaseLock)
+        1    0.000    0.000    0.000    0.000 __init__.py:1663(getEffectiveLevel)
+        1    0.000    0.000    0.000    0.000 {method 'copy' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 Player.py:223(<listcomp>)
+        1    0.000    0.000    0.000    0.000 Game.py:105(<listcomp>)
+
+
