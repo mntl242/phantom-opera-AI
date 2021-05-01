@@ -46,17 +46,32 @@ class Player():
     def reset(self):
         self.socket.close()
 
-    def algorithm(self, data):
-        response = random.randint(0, len(data)-1)
-        return response
+    def find_index(self, lst, key, value):
+        for i, dic, in enumerate(lst):
+            if dic[key] == value:
+                return i
+        return None
+
+    def algorithm(self, question):
+        data = question["data"]
+        game_state = question["game state"]
+        if question["question type"] == "select character":
+            red_index = self.find_index(data, "color", "red")
+            if red_index != None:
+                return red_index
+        if question["question type"] == "activate red power":
+            return 1
+        return random.randint(0, len(question["data"])-1)
+
 
     def answer(self, question):
         # work
         data = question["data"]
         game_state = question["game state"]
-        response_index = self.algorithm(data)
+        response_index = self.algorithm(question)
         # log
         inspector_logger.debug("|\n|")
+        inspector_logger.debug(f"game state ----- {question['game state']['characters']}")
         inspector_logger.debug("inspector answers")
         inspector_logger.debug(f"question type ----- {question['question type']}")
         inspector_logger.debug(f"data -------------- {data}")
