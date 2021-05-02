@@ -3,6 +3,7 @@ import logging
 import os
 import random
 import socket
+import ipdb
 from logging.handlers import RotatingFileHandler
 
 import protocol
@@ -33,6 +34,8 @@ fantom_logger.addHandler(stream_handler)
 
 class Player():
 
+    fantom= None
+
     def __init__(self):
 
         self.end = False
@@ -44,12 +47,38 @@ class Player():
 
     def reset(self):
         self.socket.close()
+    
+    def find_index(self, lst, key, value):
+        for i, dic, in enumerate(lst):
+            if dic[key] == value:
+                return i
+        return None
+
+    def algo(self, question):
+        data = question["data"]
+        game_state = question["game state"]
+        self.fantom= game_state["fantom"]
+        print(self.fantom)
+        #ipdb.set_trace()
+        if question["question type"] == "select character":
+            red_index = self.find_index(data, "color", "red")
+            if red_index != None:
+                return red_index
+        if question["question type"] == "activate white power":
+            return 0
+        if question["question type"] == "activate black power":
+            return 1
+        if question["question type"] == "activate purple power":
+            return 0
+        return random.randint(0, len(question["data"])-1)
+
+
 
     def answer(self, question):
         # work
         data = question["data"]
         game_state = question["game state"]
-        response_index = random.randint(0, len(data)-1)
+        response_index = self.algo(question)
         # log
         fantom_logger.debug("|\n|")
         fantom_logger.debug("fantom answers")
@@ -57,6 +86,7 @@ class Player():
         fantom_logger.debug(f"data -------------- {data}")
         fantom_logger.debug(f"response index ---- {response_index}")
         fantom_logger.debug(f"response ---------- {data[response_index]}")
+
         return response_index
 
     def handle_json(self, data):
