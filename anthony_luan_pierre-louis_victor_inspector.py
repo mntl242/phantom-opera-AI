@@ -46,23 +46,62 @@ class Player():
     def reset(self):
         self.socket.close()
 
-    def find_index(self, lst, key, value):
+    def find_dict_index(self, lst, key, value):
+        """
+        returns the index of an element in a list of dict for a given key/value pair
+        """
         for i, dic, in enumerate(lst):
             if dic[key] == value:
                 return i
         return None
 
+    def find_key(self, lst, key):
+        """
+        returns a list containing all values for given key from a list of dicts
+        """
+        res = [sub[key] for sub in lst]
+        return res
+
+    def innocence_list(self, lst, flag):
+        """
+        returns a list of dicts of characters
+        if flag == True, they're suspect, else they're innocent
+        """
+        res = []
+        for dic in lst:
+            if dic["suspect"] == flag:
+                res.append(dic)
+        return res
+
     def algorithm(self, question):
         data = question["data"]
         game_state = question["game state"]
+        # all characters' current position
+        all_position = self.find_key(game_state['characters'], 'position')
+        # remaining suspects and their positions
+        suspect_list = self.innocence_list(game_state['characters'], True)
+        suspect_position = self.find_key(suspect_list, 'position')
+        # innocents and their positions
+        innocent_list = self.innocence_list(game_state['characters'], True)
+        innocent_position = self.find_key(innocent_list, 'position')
+        # always plays character "red" first when available
         if question["question type"] == "select character":
-            red_index = self.find_index(data, "color", "red")
+            red_index = self.find_dict_index(data, "color", "red")
             if red_index != None:
                 return red_index
-        if question["question type"] == "activate red power":
-            return 1
+        # activates "grey" power in a random room with no suspect
+        if question["question type"] == "grey character power":
+            possible_position = [i for i in range(10)]
+            res = [x for x in possible_position if x not in list(set(suspect_position))]
+            if res != []:
+                return random.choice(res)
+        # characters go into lit rooms with suspects
+        if question["question type"] == "select position":
+            res = [x for x in data if x in list(set(suspect_position)) and x != game_state['shadow']]
+            if res != []:
+                return random.choice(res)
+        # if no condition was found, play random value
         return random.randint(0, len(question["data"])-1)
-
 
     def answer(self, question):
         # work
