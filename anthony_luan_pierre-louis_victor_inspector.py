@@ -62,7 +62,7 @@ class Player():
         res = [sub[key] for sub in lst]
         return res
 
-    def innocence_list(self, lst, flag):
+    def state_list(self, lst, flag):
         """
         returns a list of dicts of characters
         if flag == True, they're suspect, else they're innocent
@@ -74,25 +74,26 @@ class Player():
         return res
 
     def algorithm(self, question):
+        """
+        the inspector always goes for the red card if available, random choices otherwise
+        if he gets the grey card, he activates its power in a room with no suspect
+        if possible, he sends characters into lit rooms with suspects
+        """
         data = question["data"]
         game_state = question["game state"]
         # all characters' current position
         all_position = self.find_key(game_state['characters'], 'position')
         # remaining suspects and their positions
-        suspect_list = self.innocence_list(game_state['characters'], True)
+        suspect_list = self.state_list(game_state['characters'], True)
         suspect_position = self.find_key(suspect_list, 'position')
-        # innocents and their positions
-        innocent_list = self.innocence_list(game_state['characters'], True)
-        innocent_position = self.find_key(innocent_list, 'position')
-        # always plays character "red" first when available
+        # always plays character "red" when available
         if question["question type"] == "select character":
             red_index = self.find_dict_index(data, "color", "red")
             if red_index != None:
                 return red_index
         # activates "grey" power in a random room with no suspect
         if question["question type"] == "grey character power":
-            possible_position = [i for i in range(10)]
-            res = [x for x in possible_position if x not in list(set(suspect_position))]
+            res = [x for x in data if x not in list(set(suspect_position))]
             if res != []:
                 return random.choice(res)
         # characters go into lit rooms with suspects
