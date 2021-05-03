@@ -53,21 +53,63 @@ class Player():
                 return i
         return None
 
+    def find_key(self, lst, key):
+        """
+        returns a list containing all values for given key from a list of dicts
+        """
+        res = [sub[key] for sub in lst]
+        return res
+
+    def state_list(self, lst, flag):
+        """
+        returns a list of dicts of characters
+        if flag == True, they're suspect, else they're innocent
+        """
+        res = []
+        for dic in lst:
+            if dic["suspect"] == flag:
+                res.append(dic)
+        return res
+
     def algo(self, question):
         data = question["data"]
         game_state = question["game state"]
-        self.fantom= game_state["fantom"]
-        print(self.fantom)
+        self.fantom = game_state["fantom"]
+        all_position = self.find_key(game_state['characters'], 'position')
+        suspect_list = self.state_list(game_state['characters'], True)
+        shadow = game_state['shadow']
+        # always plays character "red" first when available
         if question["question type"] == "select character":
             red_index = self.find_index(data, "color", "red")
             if red_index != None:
                 return red_index
+        # activates "grey" power in a room with the most people
+        if question["question type"] == "grey character power":
+            res = max(all_position,key=all_position.count)
+            if res != shadow:
+                return [i for i, x in enumerate(data) if x == res][0]
+        # activates "white" power to spread people around
         if question["question type"] == "activate white power":
-            return 0
-        if question["question type"] == "activate black power":
             return 1
+        # activates "black" power if the room has shadow
+        if question["question type"] == "activate black power":
+            black_position= all_position[self.find_index(game_state['characters'], "color", "black")]
+            if game_state["shadow"] == black_position:
+                return 1
+            return 0
+        # never activates "purple" power
         if question["question type"] == "activate purple power":
             return 0
+        # select a position where there is shadow or no other character
+        if question["question type"] == "select position":
+            res = [x for x in data if x not in list(set(all_position))]
+            if shadow in data:
+                return [i for i, x in enumerate(data) if x == shadow][0]
+            elif res != []:
+                #print(data, res)
+                choice = random.choice(res)
+                return [i for i, x in enumerate(data) if x == choice][0]
+        # if no condition was found, play random value
         return random.randint(0, len(question["data"])-1)
 
 
