@@ -99,7 +99,8 @@ class Player():
         if question["question type"] == "select position":
             res = [x for x in data if x in list(set(suspect_position)) and x != game_state['shadow']]
             if res != []:
-                return random.choice(res)
+                choice =  random.choice(res)
+                return [i for i, x in enumerate(data) if x == choice][0]
         # if no condition was found, play random value
         return random.randint(0, len(question["data"])-1)
 
