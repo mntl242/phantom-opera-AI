@@ -3,7 +3,6 @@ import logging
 import os
 import random
 import socket
-import ipdb
 from logging.handlers import RotatingFileHandler
 
 import protocol
@@ -59,7 +58,6 @@ class Player():
         game_state = question["game state"]
         self.fantom= game_state["fantom"]
         print(self.fantom)
-        #ipdb.set_trace()
         if question["question type"] == "select character":
             red_index = self.find_index(data, "color", "red")
             if red_index != None:
